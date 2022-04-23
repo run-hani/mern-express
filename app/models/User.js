@@ -66,5 +66,8 @@ export default function UserModel(mongoose) {
             })
         })
     }
+    // 리턴안하면 에러뜸
+    // TypeError: User is not a constructor
+    return mongoose.model('User',userSchema);
 
 }

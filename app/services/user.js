@@ -8,12 +8,14 @@ export default function UserService(){
 
     return {
         join(req, res){
+            console.log(' ### 6. join 진입 ###' + JSON.stringify(req.body))
             new User(req.body).save(function(err){
                 if(err){
                     res.status(500).json({message: err})
                     console.log('회원가입 실패')
                     return;
                 }else{
+                    console.log(' ### 7. join 성공 ###');
                     res.status(200).json({ok: 'ok'})
                 }
             })
