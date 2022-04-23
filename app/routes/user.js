@@ -27,4 +27,9 @@ app.post('/join', cors(corsOptions), (req, res) => {
     UserService().join(req, res)
 })
 
+app.post('/login', cors(corsOptions), (req, res) => {
+    console.log(' ### 5. 로그인 라우터 진입 ###')
+    UserService().login(req, res)
+})
+
 export default app
