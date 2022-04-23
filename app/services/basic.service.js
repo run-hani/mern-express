@@ -2,12 +2,14 @@ exports.bmi = (payload) => {
     const {name, height, weight} = payload
     //Obtain user inputs
     let _height=Number(height);
+    let h = _height /100 // cm 단위를 m 로 변경함
     let _weight=Number(weight);
 
     //Perform calculation
-    let bmi = _weight/Math.pow(_height,2);
-
+    let bmi = _weight/Math.pow(h,2);
+    console.log('bmi 값: '+bmi)
     let output = Math.round(bmi*100)/100;
+    console.log('output 값: '+output)
     var result = {name, height, weight}
     console.log(`계산중인 값들 : ${JSON.stringify(result)}`)
     if (output<18.5)
