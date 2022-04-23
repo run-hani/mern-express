@@ -26,10 +26,13 @@ app.post('/join', cors(corsOptions), (req, res) => {
     console.log(' ### 5. 라우터 진입 ###')
     UserService().join(req, res)
 })
-
 app.post('/login', cors(corsOptions), (req, res) => {
     console.log(' ### 5. 로그인 라우터 진입 ###')
     UserService().login(req, res)
+})
+app.get('/logout', passport.authenticate('jwt', {session: false}), (req, res) => {
+    console.log(' ### 5. 로그아웃 라우터 진입 ###')
+    UserService().logout(req, res)
 })
 
 export default app
