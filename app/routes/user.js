@@ -34,5 +34,10 @@ app.get('/logout', passport.authenticate('jwt', {session: false}), (req, res) =>
     console.log(' ### 5. 로그아웃 라우터 진입 ###')
     UserService().logout(req, res)
 })
+// passport 있으면 로그인한 사람만 조회 가능
+app.get('/getUsers', cors(corsOptions), (req, res) => {
+    console.log(' ### 5. 회원조회 라우터 진입 ###')
+    UserService().getUsers(req, res)
+})
 
 export default app
